@@ -1,0 +1,16 @@
+%h3 List of loans
+
+- if @books.empty?
+  No loans yet!
+- else
+  %table.table.table-striped.table-bordered
+    %tbody
+      %tr
+        %td Title
+        %td Author
+        %td Actions
+      - @books.each do |book|
+        %tr
+          %td= book.title
+          %td= book.author
+          %td= link_to('Return it', book_return_loan_path(book), method: 'put', class: 'btn btn-primary btn-xs', data: { dismiss: 'alert' })

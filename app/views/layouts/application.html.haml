@@ -19,7 +19,7 @@
             %li= link_to "Users", root_path
             %li= link_to "Books", root_path
             %li= link_to "Borrow A Book", new_loan_path
-            %li= link_to "Return A Book", root_path
+            %li= link_to "Return A Book", loans_path
     .container
       = render 'layouts/messages'
       = yield

@@ -2,6 +2,20 @@ class LoansController < ApplicationController
   before_action :set_loan, only: [:show, :update]
   before_action :set_available_books, only: [:new, :show, :update]
 
+  def index
+    @books = Book.borrowed
+  end
+
+  def book_return
+    book = Book.find params[:id]
+    @loan = Loan.find_by(book: book)
+    
+    if @loan.destroy
+      book.available! # Make book available again after return it
+      redirect_to loans_path
+    end
+  end
+
   def new
     @loan = Loan.new
     @users = User.all
@@ -34,12 +48,6 @@ class LoansController < ApplicationController
       binding.pry
       flash[:alert] = "Loan has not been updated"
     end
-  end
-
-  def book_borrow
-  end
-
-  def book_return
   end
 
   private
