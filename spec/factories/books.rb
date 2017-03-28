@@ -3,6 +3,6 @@ FactoryGirl.define do
     title { FFaker::Book.title }
     author { FFaker::Book.author }
     resume { FFaker::Lorem.paragraph }
-    status 1
+    status 0
   end
 end

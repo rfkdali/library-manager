@@ -5,3 +5,14 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'factory_girl_rails'
+
+10.times {
+  FactoryGirl.create(:user)
+  p "Create a user"
+}
+
+10.times {
+  FactoryGirl.create(:book)
+  p "Create a book"
+}
