@@ -20,4 +20,10 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  books:
+    total_number_books: "Number of books"
+    number_available_books: "Number of available books"
+    number_of_borrowed_books: "Number of borrowed books"
+  users:
+    total_number_users: "Number of users"
+    number_users_at_least_one_book: "Users who have at least borrowed one book"
