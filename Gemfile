@@ -39,6 +39,9 @@ gem 'bootstrap-sass'
 gem 'haml-rails'
 gem 'simple_form'
 
+# File attachment
+gem 'paperclip'
+
 group :test do
   gem 'factory_girl_rails'
   gem 'capybara'
