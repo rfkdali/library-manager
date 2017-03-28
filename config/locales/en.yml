@@ -27,3 +27,8 @@ en:
   users:
     total_number_users: "Number of users"
     number_users_at_least_one_book: "Users who have at least borrowed one book"
+  loans:
+    book_borrow:
+      title: "Borrow a book"
+    book_return:
+      title: "Return a book"

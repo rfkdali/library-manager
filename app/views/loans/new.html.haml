@@ -1,0 +1,4 @@
+= simple_form_for((@loan), method: :new) do |f|
+  = f.input :user_id, collection: @users, label_method: :email, selected: 0
+  = f.input :book_id, collection: @books, label_method: :title, selected: 0
+  = f.submit class: "btn btn-primary btn-sm"
