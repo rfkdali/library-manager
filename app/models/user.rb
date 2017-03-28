@@ -12,4 +12,8 @@ class User < ApplicationRecord
   def full_name
     [first_name, last_name].join " "
   end
+
+  def self.with_loans
+    joins(:loans).uniq
+  end
 end

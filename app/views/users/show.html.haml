@@ -10,10 +10,10 @@
   %b Last Name:
   = @user.last_name
 
-- unless @user.avatar_file_name
+- unless @user.avatar_file_name.nil?
   %p
     %b Avatar:
-    = image_tag(@user.avatar_file_name, class: "avatar_img")
+    = image_tag(@user.avatar.url, class: "avatar_img")
 
 = link_to 'Edit', edit_user_path(@user)
 \|
