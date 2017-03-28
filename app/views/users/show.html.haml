@@ -1,0 +1,20 @@
+%p#notice= notice
+
+%p
+  %b Email:
+  = @user.email
+%p
+  %b First Name:
+  = @user.first_name
+%p
+  %b Last Name:
+  = @user.last_name
+
+- unless @user.avatar_file_name
+  %p
+    %b Avatar:
+    = image_tag(@user.avatar_file_name, class: "avatar_img")
+
+= link_to 'Edit', edit_user_path(@user)
+\|
+= link_to 'Back', users_path

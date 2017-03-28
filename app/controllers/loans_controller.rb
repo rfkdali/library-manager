@@ -12,7 +12,7 @@ class LoansController < ApplicationController
     
     if @loan.destroy
       book.available! # Make book available again after return it
-      redirect_to loans_path
+      redirect_to loans_path, notice: "Loan has been successfuly destroyed"
     end
   end
 
@@ -25,10 +25,11 @@ class LoansController < ApplicationController
     @loan = Loan.new(loan_params)
 
     if @loan.save
-      redirect_to loan_path(@loan) if @loan.book.borrowed! # change status
-      flash[:notice] = "Loan has been successfuly created"
+      if @loan.book.borrowed! # change status
+        redirect_to loan_path(@loan), notice: "Loan has been successfuly created"
+      end
     else
-      flash[:alert] = "Loan has not been created"
+      redirect_to new_loan_path, alert: "Loan has not been created"
     end
   end
 
@@ -42,11 +43,11 @@ class LoansController < ApplicationController
 
 
     if @loan.save
-      redirect_to loan_path(@loan) if @loan.book.borrowed! # change status
-      flash[:notice] = "Loan has been successfuly updated"
+      if @loan.book.borrowed! # change status
+        redirect_to loan_path(@loan), notice: "Loan has been successfuly updated"
+      end
     else
-      binding.pry
-      flash[:alert] = "Loan has not been updated"
+      redirect_to new_loan_path, alert: "Loan has not been updated"
     end
   end
 
