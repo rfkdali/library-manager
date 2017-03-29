@@ -14,6 +14,6 @@ class User < ApplicationRecord
   end
 
   def self.with_loans
-    joins(:loans).uniq
+    joins(:loans).distinct
   end
 end

@@ -25,7 +25,6 @@ class LoansController < ApplicationController
     @loan = Loan.new(loan_params)
 
     if @loan.save
-      @loan.book.borrowed! # change status
       redirect_to loan_path(@loan), notice: "Loan has been successfuly created"
     else
       redirect_to new_loan_path, alert: "Loan has not been created"
