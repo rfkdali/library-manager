@@ -9,7 +9,7 @@ require 'factory_girl_rails'
 
 10.times {
   FactoryGirl.create(:user)
-  p "Create a user" 
+  p "Create a user"
 }
 
 10.times {

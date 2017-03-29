@@ -34,8 +34,9 @@ class BooksController < ApplicationController
   end
 
   def destroy
-    @book.destroy
-    redirect_to books_url, notice: 'Book was successfully destroyed.'
+    if @book.destroy
+      redirect_to books_path, notice: 'Book was successfully destroyed.'
+    end
   end
 
   private

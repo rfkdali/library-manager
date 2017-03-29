@@ -11,7 +11,7 @@ class Book < ApplicationRecord
     .where(status: :available)
   end
 
-  def borrowed
-    .where(status: :borrowed)
+  def self.borrowed
+    joins(:loan)
   end
 end
